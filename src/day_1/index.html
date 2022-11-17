@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>React Pilot</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="centered-div">
+			<div id="root" class="content">
+				<h1>Hello World</h1>
+			</div>
+			<div id="root-with-js" class="content"></div>
+			<div id="root-with-react" class="content"></div>
+		</div>
+
+		<!-- display content with pure JS -->
+		<script>
+			const root = document.getElementById("root-with-js");
+			const heading = document.createElement("h1");
+			heading.innerText = "Hello World using Javascript";
+			root.appendChild(heading);
+		</script>
+
+		<!-- display content with react -->
+		<!-- React Lib -->
+		<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<!-- React DOM lib -->
+		<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="App.js"></script>
+	</body>
+</html>
