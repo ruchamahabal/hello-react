@@ -9,26 +9,16 @@
 	</head>
 	<body>
 		<div class="centered-div">
-			<div id="root" class="content">
+			<div id="root-with-react" class="content">
 				<h1>Hello World</h1>
 			</div>
-			<div id="root-with-js" class="content"></div>
-			<div id="root-with-react" class="content"></div>
 		</div>
 
-		<!-- display content with pure JS -->
-		<script>
-			const root = document.getElementById("root-with-js");
-			const heading = document.createElement("h1");
-			heading.innerText = "Hello World using Javascript";
-			root.appendChild(heading);
-		</script>
-
-		<!-- display content with react -->
-		<!-- React Lib -->
-		<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-		<!-- React DOM lib -->
-		<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-		<script src="App.js"></script>
+		<!-- 
+			Javascript doesn’t support importing modules using a normal script tag.
+			A script tag having the type="module" attribute specifies that it is to be considered as a Javascript module. 
+			It may be importing other Javascript module(s) inside it and becomes a "top-level" module for the imported modules. 
+		-->
+		<script type="module" src="App.js"></script>
 	</body>
 </html>

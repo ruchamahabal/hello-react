@@ -1,3 +1,7 @@
+// Since App.js is added as a module, we can import packages here using import statement
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 // Top-level APIs are available on the React global
 const react_heading = React.createElement(
 	"h1", // element: the tag/component you want to create
