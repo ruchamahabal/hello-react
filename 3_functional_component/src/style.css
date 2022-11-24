@@ -1,0 +1,12 @@
+.centered-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.content {
+    font-family: sans-serif;
+    color: #2A2839;
+}
