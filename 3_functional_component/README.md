@@ -1,37 +1,53 @@
-# Igniting the App
+# Functional Components and JSX
 
-## 1. Initialize the app
+## JSX
 
-- We can initialize the app using `npm init -y`
-- The -y option doesn’t prompt the user to add info about the app and creates it using default params.
-- This creates a package.json file that contains meta-information about your project like package names, versioning info, what the package is about, dependencies and devDependencies of the package, how to set it up and more. npm creates a configuration and it is stored in package.json.
+- JSX is Javascript XML (not the full form)
+- Allows us to add HTML-like syntax in javascript
+- We can assign JSX to const. 
+- JSX does not cause any performance difference because it's transpiling into the same HTML code, under the hood.
+- If someone injects malicious JS code in your branch, they can get access to cookies, sessions, passwords, etc. JSX prevents cross-site scripting and injection attacks. It escapes/sanitizes the code for better security.
 
-## 2. Adding packages: react and react-dom
+### Difference between JSX and createElement
 
-- In order to inject scripts for react and react-dom, we used to add script tags in HTML.
-- Now we can add packages for these scripts to make it more modular
-- `npm i react react-dom`
-- With this `react and react-dom` get added to dependencies in package.json
-- Along with these packages, transitive dependencies also get installed
-- This now creates:
-	- **package-lock.json**: With this, the versions of all your packages and their dependencies are locked. This means when you run npm install on other machines, npm checks this file to install the exact versions of the dependencies. If this file is absent, npm would then work with the caret symbol
-	- **node_modules**: node_modules stores the source code of all the downloaded packages for dependencies and dev-dependencies needed for your app
+- createElement creates a Javascript object which creates the h1 tag in DOM
+- JSX internally behind the scenes, also uses React.createElement that creates an Object which creates the h1 tag in DOM
+- Both do the same thing, but JSX is more readable as compared to createElement.
+- If we have to create nested elements using createElement the code becomes unreadable and unmaintainable.
 
-## 3. Build for production: Ignite the app
+## Functional Component
 
-- Before we ship to prod, we need to minify our files using a bundler like webpack, parcel, etc.
-- **Bundler**: 
-	- A bundler is a tool that puts together all your code, images, packages, and their dependencies in order to ship it to production so that the application can be served easily. These files have everything merged and ready for the web, commonly known as the bundle file.
-	- A bundler also minifies the files for performance improvements while shipping to production. When we write code we also include indentations, comments, warnings, logs, docs, tests, etc but we don’t need all of this in the bundle file.
-- We install parcel as a devDependency: `npm i -D parcel`
-- Now to ignite our app, we can start the development server by giving parcel the root or entry point of our app using:
-	- **npx**: Since parcel is not installed globally we can use npx to execute the command to start the build and spin up dev server: `npx parcel src/index.html`
-	- **using scripts**: Or we can write scripts in package.json for different commands:
-		- "start": "parcel src/index.html"
-		- test: to run unit tests
-		- We can run these commands using `npm run <command_name>` eg: npm run start
-- On a successful build, it adds:
-	- **.parcel-cache**: .parcel-cache updates stores information about your project when parcel builds it, so that, when it rebuilds, it doesn’t have to reparse and re-analyze everything from scratch.
-	- **dist**: Dist means distributable. This folder contains the minified, production-ready compiled version of our source code under the src folder. When we run the command for the build, parcel runs all its optimizations on the codebase for production and generates minified, optimized code ready for distribution.
-- Build a production version of your app using `parcel build src/index.html`
-- **Browserslist**: Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. You can provide queries for both prod as well as dev mode.
+- A very small element of react code is called a component.
+- Functional component is a composition of react elements. If a function returns some react element, it becomes a functional component.
+- Generally created using arrow functions
+- Functional components can also be nested one inside another.
+
+## Common conventions/syntax
+
+- String interpolation (insert expression vals into literal strings) can be done in JSX by writing any valid javascript in {}
+- In JSX, attributes/properties in HTML-like syntax like class, tab-index, etc, need to be written in camel casing: className, tabIndex.
+- Functional components are written using pascal casing, and can be nested
+- While passing JSX to be rendered, a single element should be passed. So if we have more than one element to be returned, it can be enclosed in React.Fragment or empty angular brackets.
+eg:
+```
+	<>
+		<Navbar/>
+		<div className="centered-div">
+			{heading}<br/>
+			{jsx_heading}<br/>
+			<HeadingComponent/>
+		</div>
+	</>
+```
+
+```
+	<React.Fragment>
+		<Navbar/>
+		<div className="centered-div">
+			{heading}<br/>
+			{jsx_heading}<br/>
+			<HeadingComponent/>
+		</div>
+	</React.Fragment>
+```
+

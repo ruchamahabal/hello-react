@@ -61,7 +61,7 @@ const react_root = ReactDOM.createRoot(document.getElementById("root-with-react"
 // push react elements into the root
 react_root.render(
 	// we need to pass a single element to root for rendering. 
-	// we can enclose 2 elements in an empty bracket/fragment
+	// we can enclose 2 elements in an empty bracket/React.Fragment
 	<>
 		<Navbar/>
 		<div className="centered-div">
