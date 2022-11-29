@@ -7,7 +7,7 @@ import { Team } from "./data/Team";
 
 const CardContainer = () => {
 	return Team.map((member) => (
-		<Card member={member}/>
+		<Card member={member} key={member.id}/>
 	));	
 };
 

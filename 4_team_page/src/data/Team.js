@@ -52,7 +52,7 @@ export const Team = [
 		"github": "https://github.com/Pratik33"
 	},
 	{
-		"id": 105,
+		"id": 106,
 		"img": IMAGES.shubham,
 		"name": "Shubham Yadav",
 		"address": "Mohali",
@@ -62,7 +62,7 @@ export const Team = [
 		"github": "https://github.com/shubhamyadav30"
 	},
 	{
-		"id": 106,
+		"id": 107,
 		"img": IMAGES.shailendra,
 		"name": "Shailendra Raikwar",
 		"address": "Bhopal",
@@ -72,7 +72,7 @@ export const Team = [
 		"github": "https://github.com/ShailendraSinghRaikwar"
 	},
 	{
-		"id": 106,
+		"id": 108,
 		"img": IMAGES.abhishek,
 		"name": "Abhishek Anand",
 		"address": "Bangalore",
@@ -82,7 +82,7 @@ export const Team = [
 		"github": "https://github.com/abhishekps782"
 	},
 	{
-		"id": 106,
+		"id": 109,
 		"img": IMAGES.mojahid,
 		"name": "Mojahid",
 		"address": "New Delhi",
@@ -92,7 +92,7 @@ export const Team = [
 		"github": "https://github.com/mojahidhd"
 	},
 	{
-		"id": 106,
+		"id": 110,
 		"img": IMAGES.taj,
 		"name": "Taj Ahmad",
 		"address": "Nellore",
