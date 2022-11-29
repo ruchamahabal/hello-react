@@ -4,9 +4,9 @@
 
 - JSX is Javascript XML (not the full form)
 - Allows us to add HTML-like syntax in javascript
-- We can assign JSX to const. 
+- We can write JSX as expressions 
 - JSX does not cause any performance difference because it's transpiling into the same HTML code, under the hood.
-- If someone injects malicious JS code in your branch, they can get access to cookies, sessions, passwords, etc. JSX prevents cross-site scripting and injection attacks. It escapes/sanitizes the code for better security.
+- If someone injects malicious JS code in your console, they can get access to cookies, sessions, passwords, etc. JSX prevents cross-site scripting and injection attacks. It escapes/sanitizes the code for better security.
 
 ### Difference between JSX and createElement
 
@@ -14,6 +14,8 @@
 - JSX internally behind the scenes, also uses React.createElement that creates an Object which creates the h1 tag in DOM
 - Both do the same thing, but JSX is more readable as compared to createElement.
 - If we have to create nested elements using createElement the code becomes unreadable and unmaintainable.
+- Instead of using createElement, JSX helps us to “think” and write in HTML-like syntax. Instead of putting markup and logic in separate files, React has components that contain both.
+
 
 ## Functional Component
 

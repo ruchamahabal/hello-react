@@ -32,7 +32,7 @@ const TitleComponent = () => <h1>React Bootcamp (using functional component)</h1
 const HeadingComponent = () => {
 	return (
 		<div id="title" className="heading-div">
-			{<TitleComponent/>}
+			<TitleComponent/>
 			<h2>From Zero to Hero</h2>
 			<h3>in {noOfMonths} months</h3>
 		</div>
