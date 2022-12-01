@@ -1,12 +1,21 @@
-const IMAGES = {
-    upaharika: require("../member_images/upaharika.jpeg"),
-    rucha: require("../member_images/rucha.jpeg"),
-    rishav: require("../member_images/rishav-sah.jpeg"),
-    vinay: require("../member_images/vinay-puvvadi.jpeg"),
-    prateek: require("../member_images/prateek.jpeg"),
-    shubham: require("../member_images/shubham.jpeg"),
-    shailendra: require("../member_images/shailendra.jpeg"),
-    abhishek: require("../member_images/abhishek.png"),
+import upaharika from "../member_images/upaharika.jpeg";
+import rucha from "../member_images/rucha.jpeg";
+import rishav from "../member_images/rishav.jpeg";
+import prateek from "../member_images/prateek.jpeg";
+import vinay from "../member_images/vinay.jpeg";
+import shubham from "../member_images/shubham.jpeg";
+import shailendra from "../member_images/shailendra.jpeg";
+import abhishek from "../member_images/abhishek.png";
+
+let images = {
+    upaharika: upaharika,
+    rucha: rucha,
+    rishav: rishav,
+    vinay: vinay,
+    prateek: prateek,
+    shubham: shubham,
+    shailendra: shailendra,
+    abhishek: abhishek,
 };
 
-export default IMAGES;
+export default images;
