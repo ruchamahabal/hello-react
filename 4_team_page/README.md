@@ -27,6 +27,40 @@
 		[]
 	)
 	```
+
+### Passing Props
+
+- React components use props to communicate with each other. 
+- Every parent component can pass some information to its child components by giving them props.
+- Whenever we need to modify something, we need to find it's root/parent.
+
+#### Passing props to child components
+
+- For eg: Here `AppLayout` is passing props `setFilteredMembers` and `filteredMembers` to `Navbar` and `CardContainer` respectively.
+
+```javascript
+const AppLayout = () => {
+	/*
+	 * using filteredMembers state variable
+	 * and setFilteredMembers to render data based on search results
+	 * passing setFilteredMembers function prop to Navbar -> SearchBar for controlling what data needs to be displayed
+	 * passing filteredMembers to CardContainer to display data based on the results
+	*/
+	const [filteredMembers, setFilteredMembers] = useState(Team);
+
+	return (
+		<>
+			<Navbar setFilteredMembers={setFilteredMembers}/>
+			<div className="card-container">
+				<CardContainer filteredMembers={filteredMembers} />
+			</div>
+		</>
+	)
+}
+```
+
+#### Reading props inside child components
+
 - We can access the props in the functional component
 	```javascript
 	function Avatar(props) {
@@ -38,10 +72,11 @@
 		);
 	}
 	```
+
 - We can get rid of the redundant "props" reference by destructuring the properties:
 	```javascript
-	const CardComponent = ({ restraunt }) => {
-		const { img, name, cusine, stars } = restraunt;
+	const CardComponent = ({ restaurant }) => {
+		const { img, name, cusine, stars } = restaurant;
 		return (
 			<div id="card" className="card">
 			<img src={img} />
@@ -60,3 +95,45 @@
 - If there are millions of cards on the page, and if there is some operation to be done on specific cards, or showing specific UI like high rating, delete button, close menu, etc, it becomes easier for React when all children in a list have unique IDs to find the exact card and make the changes/update the state.
 - Hence, if we give duplicate keys, this main purpose is defeated. The warning clearly says that non-unique keys may cause children to be duplicated or omitted.
 - React recommends that you do not use indexes as keys, since it could impact performance negatively and could lead to some unstable component behavior.
+
+## React Hooks
+
+- A JS function that helps us with some functionality. They let you use the state and other react features without writing a class.
+- They help us write pure functional components.
+- Hooks run each time component re-renders. Each time state or a prop is changed, the functional component is being re-rendered and, thus, our custom hook is being called over and over again.
+
+### State
+
+- Snapshot of data in your component. State is an object that holds the current data of the component.
+- Whenever there is a change in state the component re-renders to reflect the current state value.
+
+#### State hook: useState
+
+- State can be accessed and modified using the useState hook provided by react.
+- useState is a way for react to know that there is a local variable now set in.
+- It takes the initial state.default value for the variable as an argument. In this case, the string "".
+
+```javascript
+import { useState } from "react";
+const [searchText, setSearchText] = useState("");
+```
+
+#### Two-way binding: setState
+
+- We cannot modify state variables directly. We can do it using the setState function.
+- React needs to know exactly when the text is getting modified. We can’t tamper with the variable directly. We can only set it by calling the setState function.
+- `setState` returns an array and we access it using array destructuring. React gives you a state variable using useState and it also gives you a way to listen to that variable using `setState`.
+- Here we are doing two-way binding: using useState to get the text in the search bar and using setState to listen to the text change and set the new state/text in the search bar.
+- In this case, setSearchText function that we accept as the second element in the array.
+
+```javascript
+const [searchText, setSearchText] = useState(“”);
+```
+
+- We can then setup `onChange` listener for the search box and set the text using setSearchText:
+
+```javascript
+onChange = {(e) => {
+       setSearchText(e.target.value);
+}}
+```
