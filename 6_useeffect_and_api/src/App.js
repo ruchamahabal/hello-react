@@ -1,6 +1,6 @@
 // Since App.js is added as a module, we can import packages here using import statement
 import ReactDOM from "react-dom/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar.js";
 import Card from "./components/Card.js";
@@ -12,7 +12,6 @@ const CardContainer = ({ filteredMembers }) => {
 		<Card member={member} key={member.id}/>
 	));	
 };
-
 const AppLayout = () => {
 	/*
 	 * using filteredMembers state variable
@@ -21,6 +20,24 @@ const AppLayout = () => {
 	 * passing filteredMembers to CardContainer to display data based on the results
 	*/
 	const [filteredMembers, setFilteredMembers] = useState(Team);
+
+	useEffect(() => {
+		getGithubUsersData();
+	}, []);
+
+	const getGithubUsersData = async () => {
+		/**
+		 * Putting `Promise.all()` around the array of promises converts it into a single promise.
+		 * The single promise from `Promise.all()` returns an array of values
+		 * i.e. the individual promises each resolving to one value.
+		 */
+		let usersData = await Promise.all(filteredMembers.map(async (member) => {
+			const userInfo = await fetch(`https://api.github.com/users/${member.github}`);
+			return await userInfo.json();
+		}));
+
+		return usersData;
+	}
 
 	return (
 		<>
