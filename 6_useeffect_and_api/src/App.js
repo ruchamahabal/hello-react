@@ -22,7 +22,17 @@ const AppLayout = () => {
 	const [filteredMembers, setFilteredMembers] = useState(Team);
 
 	useEffect(() => {
-		getGithubUsersData();
+		/**
+		 * use the API data stored in session storage if available
+		 * else call the API and update the state variable
+		 */
+		if (sessionStorage.getItem("usersData")) {
+			console.log(JSON.parse(sessionStorage.getItem("usersData")));
+		} else {
+			getGithubUsersData().then((usersData) => {
+				console.log(usersData);
+			});
+		}
 	}, []);
 
 	const getGithubUsersData = async () => {
@@ -36,6 +46,11 @@ const AppLayout = () => {
 			return await userInfo.json();
 		}));
 
+		/**
+		 * save the API data in session storage
+		 * to avoid redundant API calls leading to rate limit errors
+		 */
+		sessionStorage.setItem("usersData", JSON.stringify(usersData));
 		return usersData;
 	}
 
