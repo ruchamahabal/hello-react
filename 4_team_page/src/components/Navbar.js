@@ -1,15 +1,15 @@
 import logo from "../assets/logo.jpeg";
 
-const Navbar = () => {
+import SearchBar from "./SearchBar";
+
+const Navbar = ({ setFilteredMembers }) => {
 	return (
 		<div className="navbar">
 			<div className="logo">
 				<img src={logo} alt="logo"></img>
 				<h1 className="title">Web Pirates</h1>
 			</div>
-			<div className="search-container">
-				<input type="text" placeholder="Search..." className="search-bar" autoFocus/>
-			</div>
+			<SearchBar setFilteredMembers={setFilteredMembers} />
 		</div>
 	)
 };
