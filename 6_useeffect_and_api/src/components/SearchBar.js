@@ -15,7 +15,7 @@ const getFilteredMembers = (searchText, memberData) => {
 	);
 };
 
-const SearchBar = ({ APIData, setFilteredMembers }) => {
+const SearchBar = ({ APIData, setFilteredMembers, setNoResults }) => {
 	// state variable and function for getting and setting the searchText
 	const [searchText, setSearchText] = useState("");
 
@@ -29,8 +29,13 @@ const SearchBar = ({ APIData, setFilteredMembers }) => {
 
 		// get filtered member list by passing APIData as the main data to filter from
 		const filteredMembers = getFilteredMembers(searchText, APIData);
-		// call passed function prop to set the filteredMembers in the CardContainer
-		setFilteredMembers(filteredMembers);
+
+		if (filteredMembers?.length) {
+			setFilteredMembers(filteredMembers);
+			setNoResults(false);
+		} else {
+			setNoResults(true);
+		}
 	}
 
 	return (

@@ -54,7 +54,7 @@ a {
 	width: 100%;
 }
 
-/* content */
+/* content - card */
 
 .card-container {
 	display: flex;
@@ -142,5 +142,14 @@ a {
 }
 
 .location {
-	margin-top: 5px;
+	margin-top: 7px;
+}
+
+/* No results */
+
+.no-result-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
 }

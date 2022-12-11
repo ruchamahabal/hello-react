@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar.js";
 import Card from "./components/Card.js";
+import NoResults from "./components/NoResults.js";
 
 const CardContainer = ({ memberData }) => {
 	return (memberData || []).map((member) => (
@@ -22,6 +23,7 @@ const AppLayout = () => {
 
 	const [filteredMembers, setFilteredMembers] = useState([]);
 	const [APIData, setAPIData] = useState([]);
+	const [noResults, setNoResults] = useState(false);
 
 	useEffect(() => {
 		/**
@@ -58,9 +60,13 @@ const AppLayout = () => {
 
 	return (
 		<>
-			<Navbar APIData={APIData} setFilteredMembers={setFilteredMembers}/>
+			<Navbar APIData={APIData} setFilteredMembers={setFilteredMembers} setNoResults={setNoResults}/>
 			<div className="card-container">
-				<CardContainer memberData={ filteredMembers.length ? filteredMembers : APIData} />
+				{
+					noResults
+						? <NoResults />
+						: <CardContainer memberData={ filteredMembers.length ? filteredMembers : APIData} />
+				}
 			</div>
 		</>
 	)
