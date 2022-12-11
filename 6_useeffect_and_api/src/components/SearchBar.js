@@ -6,15 +6,16 @@ import { useState } from "react";
  * @param {object} data data to filter from
  */
 const getFilteredMembers = (searchText, memberData) => {
-	return memberData.filter((res) =>
+	return (memberData || []).filter((res) =>
 		(
-			res.name.toLowerCase().includes(searchText.toLowerCase())
-			|| res.designation.toLowerCase().includes(searchText.toLowerCase())
+			res.name?.toLowerCase().includes(searchText.toLowerCase())
+			|| res.login?.toLowerCase().includes(searchText.toLowerCase())
+			|| res.company?.toLowerCase().includes(searchText.toLowerCase())
 		)
 	);
 };
 
-const SearchBar = ({ setFilteredMembers }) => {
+const SearchBar = ({ APIData, setFilteredMembers }) => {
 	// state variable and function for getting and setting the searchText
 	const [searchText, setSearchText] = useState("");
 
@@ -24,26 +25,24 @@ const SearchBar = ({ setFilteredMembers }) => {
 	 */
 	const inputHandler = (e) => {
 		e.preventDefault();
-		// get filtered member list
-		const filteredMembers = getFilteredMembers(searchText, []);
+		setSearchText(e.target.value);
+
+		// get filtered member list by passing APIData as the main data to filter from
+		const filteredMembers = getFilteredMembers(searchText, APIData);
 		// call passed function prop to set the filteredMembers in the CardContainer
 		setFilteredMembers(filteredMembers);
 	}
 
 	return (
 		<div className="search-container">
-			<form onInput={inputHandler}>
-				<input 
-					type="text" 
-					placeholder="Search..."
-					className="search-bar"
-					value={searchText}
-					onChange = {(e) => {
-						setSearchText(e.target.value);
-					}}
-					autoFocus
-				/>
-			</form>
+			<input
+				type="search"
+				placeholder="Search..."
+				className="search-bar"
+				onInput={inputHandler}
+				value={searchText}
+				autoFocus
+			/>
 		</div>
 	);
 };

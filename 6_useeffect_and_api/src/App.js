@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar.js";
 import Card from "./components/Card.js";
 
 const CardContainer = ({ memberData }) => {
-	return memberData.map((member) => (
+	return (memberData || []).map((member) => (
 		<Card member={member} key={member.id}/>
 	));	
 };
@@ -58,9 +58,9 @@ const AppLayout = () => {
 
 	return (
 		<>
-			<Navbar setFilteredMembers={setFilteredMembers}/>
+			<Navbar APIData={APIData} setFilteredMembers={setFilteredMembers}/>
 			<div className="card-container">
-				<CardContainer memberData={APIData} />
+				<CardContainer memberData={ filteredMembers.length ? filteredMembers : APIData} />
 			</div>
 		</>
 	)
