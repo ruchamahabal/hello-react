@@ -5,13 +5,12 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar.js";
 import Card from "./components/Card.js";
 
-import { Team } from "./data/Team.js";
-
-const CardContainer = ({ filteredMembers }) => {
-	return filteredMembers.map((member) => (
+const CardContainer = ({ memberData }) => {
+	return memberData.map((member) => (
 		<Card member={member} key={member.id}/>
 	));	
 };
+
 const AppLayout = () => {
 	/*
 	 * using filteredMembers state variable
@@ -19,7 +18,10 @@ const AppLayout = () => {
 	 * passing setFilteredMembers function prop to Navbar -> SearchBar for controlling what data needs to be displayed
 	 * passing filteredMembers to CardContainer to display data based on the results
 	*/
-	const [filteredMembers, setFilteredMembers] = useState(Team);
+	const githubUserNames = ["ruchamahabal", "upaharika", "rishav-sah", "Pratik33", "vinaysaip", "shubhamyadav30", "ShailendraSinghRaikwar", "abhishekps782", "mojahidhd", "taj0598"];
+
+	const [filteredMembers, setFilteredMembers] = useState([]);
+	const [APIData, setAPIData] = useState([]);
 
 	useEffect(() => {
 		/**
@@ -27,10 +29,10 @@ const AppLayout = () => {
 		 * else call the API and update the state variable
 		 */
 		if (sessionStorage.getItem("usersData")) {
-			console.log(JSON.parse(sessionStorage.getItem("usersData")));
+			setAPIData(JSON.parse(sessionStorage.getItem("usersData")));
 		} else {
 			getGithubUsersData().then((usersData) => {
-				console.log(usersData);
+				setAPIData(usersData);
 			});
 		}
 	}, []);
@@ -41,8 +43,8 @@ const AppLayout = () => {
 		 * The single promise from `Promise.all()` returns an array of values
 		 * i.e. the individual promises each resolving to one value.
 		 */
-		let usersData = await Promise.all(filteredMembers.map(async (member) => {
-			const userInfo = await fetch(`https://api.github.com/users/${member.github}`);
+		let usersData = await Promise.all(githubUserNames.map(async (username) => {
+			const userInfo = await fetch(`https://api.github.com/users/${username}`);
 			return await userInfo.json();
 		}));
 
@@ -58,7 +60,7 @@ const AppLayout = () => {
 		<>
 			<Navbar setFilteredMembers={setFilteredMembers}/>
 			<div className="card-container">
-				<CardContainer filteredMembers={filteredMembers} />
+				<CardContainer memberData={APIData} />
 			</div>
 		</>
 	)

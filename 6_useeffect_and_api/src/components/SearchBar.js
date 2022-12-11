@@ -1,14 +1,12 @@
 import { useState } from "react";
 
-import { Team } from "../data/Team.js";
-
 /**
  * returns filtered members that match name/designation with searchText
  * @param {string} searchText text used to match for filtering
  * @param {object} data data to filter from
  */
-const getFilteredMembers = (searchText, data) => {
-	return data.filter((res) => 
+const getFilteredMembers = (searchText, memberData) => {
+	return memberData.filter((res) =>
 		(
 			res.name.toLowerCase().includes(searchText.toLowerCase())
 			|| res.designation.toLowerCase().includes(searchText.toLowerCase())
@@ -27,7 +25,7 @@ const SearchBar = ({ setFilteredMembers }) => {
 	const inputHandler = (e) => {
 		e.preventDefault();
 		// get filtered member list
-		const filteredMembers = getFilteredMembers(searchText, Team);
+		const filteredMembers = getFilteredMembers(searchText, []);
 		// call passed function prop to set the filteredMembers in the CardContainer
 		setFilteredMembers(filteredMembers);
 	}

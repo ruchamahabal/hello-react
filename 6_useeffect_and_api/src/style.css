@@ -87,7 +87,7 @@ a {
 }
 
 .card-footer {
-	background-color: #e1e3e5;
+	background-color: #eff1f1;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -97,13 +97,13 @@ a {
 }
 
 .card-title {
+	margin-top: 7px;
 	margin-bottom: 5px;
 	font-weight: 700;
 	color: #192734;
 }
 
 .member-img {
-	width: 50%;
 	height: 170px;
 	max-width: 100%;
 	object-fit: cover;
@@ -112,15 +112,35 @@ a {
 	padding: 7px;
 }
 
+.followers {
+	margin-top: 7px;
+	font-size: 15px;
+}
+
 .text-muted {
 	color: #74808b;
 }
 
-.location {
+.details {
+	font-size: 15px;
+	color: #192734;
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
-.designation {
-	font-size: 18px;
-	color: #192734;
+.detail-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: baseline;
+	align-items: flex-end;
+	gap: 5px;
+}
+
+.icon {
+	width: 18px;
+	height: 18px;
+}
+
+.location {
+	margin-top: 5px;
 }
