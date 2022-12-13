@@ -125,6 +125,9 @@ a {
 }
 
 .details {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 	font-size: 15px;
 	color: #192734;
 	margin-top: 20px;
@@ -144,10 +147,6 @@ a {
 	height: 18px;
 }
 
-.location {
-	margin-top: 7px;
-}
-
 /* No results */
 
 .no-result-div {
@@ -155,4 +154,49 @@ a {
 	align-items: center;
 	justify-content: center;
 	height: 80vh;
+}
+
+/* Member Details page */
+
+.member-info {
+	display: flex;
+	flex-direction: column;
+	padding: 100px;
+	justify-content: center;
+	align-items: left;
+}
+
+.profile {
+	display: flex;
+	gap: 30px;
+	align-items: center;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #e1e3e5;
+}
+
+.profile .bio {
+	line-height: 30px;
+}
+
+.profile .member-img {
+	height: 250px;
+	max-width: 100%;
+}
+
+.profile .details {
+	margin-top: 10px;
+}
+
+.member-details {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	justify-content: space-between;
+}
+
+.stats {
+	padding-top: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }

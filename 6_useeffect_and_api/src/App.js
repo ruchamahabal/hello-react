@@ -4,6 +4,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
+import MemberDetails from "./components/MemberDetails";
 
 
 const AppLayout = () => {
@@ -23,6 +24,10 @@ const appRouter = createBrowserRouter([
 			{
 				index: true,
 				element: <MemberList />
+			},
+			{
+				path: "/member/:username",
+				element: <MemberDetails />,
 			},
 		]
 	},
