@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import Card from "./Card.js";
 import SearchBar from "./SearchBar.js";
@@ -7,7 +8,9 @@ import NoResults from "./NoResults.js";
 
 const CardContainer = ({ memberData }) => {
 	return (memberData || []).map((member) => (
-		<Card member={member} key={member.id}/>
+		<Link to={`/member/${member.login}`}>
+			<Card member={member} key={member.id}/>
+		</Link>
 	));
 };
 

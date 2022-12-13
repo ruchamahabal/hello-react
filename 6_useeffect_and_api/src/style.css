@@ -66,6 +66,10 @@ a {
 	justify-content: center;
 }
 
+.card-container > a {
+	display: contents;
+}
+
 .card {
 	width: 350px;
 	max-width: 100%;
