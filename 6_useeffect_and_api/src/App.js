@@ -5,6 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
 import MemberDetails from "./components/MemberDetails";
+import Error from "./components/Error.js";
 
 
 const AppLayout = () => {
@@ -20,6 +21,7 @@ const appRouter = createBrowserRouter([
 	{
 		path: "/",
 		element: <AppLayout />,
+		errorElement: <Error />,
 		children: [
 			{
 				index: true,

@@ -8,8 +8,8 @@ import NoResults from "./NoResults.js";
 
 const CardContainer = ({ memberData }) => {
 	return (memberData || []).map((member) => (
-		<Link to={`/member/${member.login}`}>
-			<Card member={member} key={member.id}/>
+		<Link to={`/member/${member.login}`} key={member.id}>
+			<Card member={member}/>
 		</Link>
 	));
 };

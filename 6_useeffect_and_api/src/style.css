@@ -153,8 +153,10 @@ a {
 
 /* No results */
 
-.no-result-div {
+.centered-div {
 	display: flex;
+	flex-direction: column;
+	gap: 30px;
 	align-items: center;
 	justify-content: center;
 	height: 80vh;

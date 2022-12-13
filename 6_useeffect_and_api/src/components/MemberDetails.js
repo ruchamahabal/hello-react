@@ -30,6 +30,8 @@ const Member = () => {
 		setMember(user);
 	};
 
+	if (!member) return;
+
 	const { 
 		avatar_url,
 		bio,
