@@ -44,9 +44,9 @@ class NestedChild extends Component {
 
 		return (
 			<>
-				{course_name} course takes you from zero to hero in {duration}
+				{course_name} course takes you from zero to hero in {duration}{" "}
 				months with hands-on coding and theory assignments,
-				<br /> interactive lectures, code reviews and a lot more! 🤓
+				<br /> interactive lectures, code reviews and a lot more!
 				<div className="flex-div">
 					{emoji}
 					<button onClick={this.toggle_emoji}> Peekaboo! </button>

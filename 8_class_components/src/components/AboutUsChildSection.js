@@ -17,7 +17,7 @@ class AboutUsChildSection extends React.Component {
 	render() {
 		console.log("Child render called");
 
-		const { team_members, mentor, course_name, duration } = this.state;
+		const { team_members, mentor, course_name, duration } = this.props;
 		return (
 			<h3 className="text-muted">
 				A team of {team_members} engineers exploring and learning React
