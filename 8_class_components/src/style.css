@@ -160,6 +160,8 @@ a {
 	align-items: center;
 	justify-content: center;
 	height: 80vh;
+	padding: 15px;
+	line-height: 30px;
 }
 
 /* Member Details page */

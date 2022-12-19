@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
 import MemberDetails from "./components/MemberDetails";
 import Error from "./components/Error.js";
+import AboutUs from "./components/AboutUs.js";
+import AboutUsChildSection from "./components/AboutUsChildSection.js";
 
 const AppLayout = () => {
 	return (
@@ -29,6 +31,16 @@ const appRouter = createBrowserRouter([
 			{
 				path: "/member/:username",
 				element: <MemberDetails />,
+			},
+			{
+				path: "/about-us",
+				element: <AboutUs />,
+				children: [
+					{
+						index: true,
+						element: <AboutUsChildSection />,
+					},
+				],
 			},
 		],
 	},
