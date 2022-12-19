@@ -42,10 +42,6 @@ class AboutUsChildSection extends React.Component {
 	componentDidUpdate() {
 		console.log("Child's componentDidUpdate called");
 	}
-
-	componentWillUnmount() {
-		console.log("Child's componentWillUnmount called");
-	}
 }
 
 export default AboutUsChildSection;
