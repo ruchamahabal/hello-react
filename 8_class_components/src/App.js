@@ -6,8 +6,9 @@ import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
 import MemberDetails from "./components/MemberDetails";
 import Error from "./components/Error.js";
-import AboutUs from "./components/AboutUs.js";
-import AboutUsChildSection from "./components/AboutUsChildSection.js";
+
+import AboutUs from "./components/class_components/AboutUs.js";
+import AboutUsChildSection from "./components/class_components/AboutUsChildSection.js";
 
 const AppLayout = () => {
 	return (

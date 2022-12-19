@@ -1,22 +1,8 @@
-import { Component } from "react";
+import React from "react";
 
-class Emoji extends Component {
-	render() {
-		return (
-			<>
-				<span className="emoji">🤗</span>
-				<br />
-			</>
-		);
-	}
+import Emoji from "./Emoji";
 
-	// Defining the componentWillUnmount method
-	componentWillUnmount() {
-		alert("The component is going to be unmounted");
-	}
-}
-
-class NestedChild extends Component {
+class NestedChild extends React.Component {
 	constructor(props) {
 		super(props);
 
