@@ -34,11 +34,18 @@ const appRouter = createBrowserRouter([
 			},
 			{
 				path: "/about-us",
-				element: <AboutUs />,
+				element: <AboutUs team_name="Web Pirates" />,
 				children: [
 					{
 						index: true,
-						element: <AboutUsChildSection />,
+						element: (
+							<AboutUsChildSection
+								team_members="10"
+								mentor="Akshay Saini"
+								course_name="Namaste React"
+								duration="3"
+							/>
+						),
 					},
 				],
 			},
