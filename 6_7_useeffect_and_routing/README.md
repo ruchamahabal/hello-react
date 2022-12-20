@@ -1,6 +1,6 @@
 # useEffect
 
-- Hook that manages side-effects in functional React components. 
+- Hook that manages side-effects in functional React components.
 - Examples of side-effects are fetch requests, manipulating DOM directly, using timer functions like setTimeout(), and more.
 The component rendering and side-effect logic are independent. It would be a mistake to perform side-effects directly in the body of the component, which is primarily used to compute the output.
 - `useEffect(callback[, dependencies])`
@@ -114,7 +114,7 @@ The details about the above snippet are explained below:
 
 ### Handling Errors
 
-- We can create an Error Component. 
+- We can create an Error Component.
 - We can specify an error component for all our paths using the `errorElement` key in our router array.
 - We can use the useRouteError hook to display extra information about the error. We just need to call the function `useRouteError` that returns us the errorData with the statusText or message.
 

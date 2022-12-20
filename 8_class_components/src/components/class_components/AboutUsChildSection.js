@@ -19,13 +19,13 @@ class AboutUsChildSection extends React.Component {
 
 		const { team_members, mentor, course_name, duration } = this.props;
 		return (
-			<h3 className="text-muted">
-				A team of {team_members} engineers exploring and learning React
-				from the greatest Javascript teacher: {mentor}
-				<br />
-				<br />
+			<div>
+				<h3 className="description text-muted">
+					A team of {team_members} engineers exploring and learning
+					React from the greatest Javascript teacher: {mentor}
+				</h3>
 				<NestedChild course_name={course_name} duration={duration} />
-			</h3>
+			</div>
 		);
 	}
 

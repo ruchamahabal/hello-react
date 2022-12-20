@@ -5,7 +5,6 @@ class Emoji extends React.Component {
 		return (
 			<>
 				<span className="emoji">🤗</span>
-				<br />
 			</>
 		);
 	}
@@ -13,7 +12,6 @@ class Emoji extends React.Component {
 	// Defining the componentWillUnmount method
 	componentWillUnmount() {
 		alert("The component is going to be unmounted");
-		console.log("The component is going to be unmounted");
 	}
 }
 

@@ -13,6 +13,16 @@ a {
 	text-decoration: none;
 }
 
+button {
+	border: none;
+	border-radius: 5px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	padding: 15px;
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}
+
 /* navbar */
 .navbar {
 	background-color: #000;
@@ -220,18 +230,14 @@ a {
 
 /* About us */
 
-.emoji {
-	font-size: 50px;
+.description {
+	max-width: 900px;
+	text-align: justify;
 }
 
-button {
-	border: none;
-	border-radius: 5px;
-	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-	padding: 15px;
-	background-color: #000;
-	color: #fff;
-	cursor: pointer;
+.emoji {
+	font-size: 50px;
+	margin-bottom: 20px;
 }
 
 .flex-div {

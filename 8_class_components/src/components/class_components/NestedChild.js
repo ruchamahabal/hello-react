@@ -30,9 +30,12 @@ class NestedChild extends React.Component {
 
 		return (
 			<>
-				{course_name} course takes you from zero to hero in {duration}{" "}
-				months with hands-on coding and theory assignments,
-				<br /> interactive lectures, code reviews and a lot more!
+				<h3 className="description text-muted">
+					{course_name} course takes you from zero to hero in{" "}
+					{duration} months with hands-on coding and theory
+					assignments, interactive lectures, code reviews and a lot
+					more!
+				</h3>
 				<div className="flex-div">
 					{emoji}
 					<button onClick={this.toggle_emoji}> Peekaboo! </button>

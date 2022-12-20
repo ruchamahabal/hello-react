@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 /**
- * returns filtered members that match name/designation with searchText
  * @param {string} searchText text used to match for filtering
- * @param {object} data data to filter from
+ * @param {object} memberData data to filter from
+ * @return {object} filtered member data that match name/designation with searchText
  */
 const getFilteredMembers = (searchText, memberData) => {
 	return (memberData || []).filter(

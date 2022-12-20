@@ -1,12 +1,15 @@
-// Since App.js is added as a module, we can import packages here using import statement
+// built-in imports
 import ReactDOM from "react-dom/client";
+// external module
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
+// components
 import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
 import MemberDetails from "./components/MemberDetails";
 import Error from "./components/Error.js";
 
+// class components
 import AboutUs from "./components/class_components/AboutUs.js";
 import AboutUsChildSection from "./components/class_components/AboutUsChildSection.js";
 
