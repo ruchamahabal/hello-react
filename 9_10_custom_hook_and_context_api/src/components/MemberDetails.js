@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import company_logo from "../assets/company.png";
-import location_logo from "../assets/location.png";
+import company_logo from "../assets/images/company.png";
+import location_logo from "../assets/images/location.png";
 
 const Member = () => {
 	let { username } = useParams();

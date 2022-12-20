@@ -5,6 +5,8 @@ import Card from "./Card.js";
 import SearchBar from "./SearchBar.js";
 import NoResults from "./NoResults.js";
 
+import teamData from "../assets/data/team_data.json";
+
 const CardContainer = ({ memberData }) => {
 	return (memberData || []).map((member) => (
 		<Link to={`/member/${member.login}`} key={member.id}>
@@ -20,18 +22,6 @@ const MemberList = () => {
 	 * passing setFilteredMembers function prop to Navbar -> SearchBar for controlling what data needs to be displayed
 	 * passing filteredMembers to CardContainer to display data based on the results
 	 */
-	const githubUserNames = [
-		"ruchamahabal",
-		"upaharika",
-		"rishav-sah",
-		"Pratik33",
-		"vinaysaip",
-		"shubhamyadav30",
-		"ShailendraSinghRaikwar",
-		"abhishekps782",
-		"mojahidhd",
-		"taj0598",
-	];
 
 	const [filteredMembers, setFilteredMembers] = useState([]);
 	const [APIData, setAPIData] = useState([]);
@@ -58,11 +48,17 @@ const MemberList = () => {
 		 * i.e. the individual promises each resolving to one value.
 		 */
 		let usersData = await Promise.all(
-			githubUserNames.map(async (username) => {
-				const userInfo = await fetch(
-					`https://api.github.com/users/${username}`
+			teamData.map(async (entry) => {
+				let userInfo = await fetch(
+					`https://api.github.com/users/${entry.username}`
 				);
-				return await userInfo.json();
+				userInfo = await userInfo.json();
+
+				// add city and state info to github data
+				userInfo["state"] = entry.state;
+				userInfo["city"] = entry.city;
+
+				return userInfo;
 			})
 		);
 

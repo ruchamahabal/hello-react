@@ -1,6 +1,6 @@
-import company_logo from "../assets/company.png";
-import location_logo from "../assets/location.png";
-import github_logo from "../assets/github.svg";
+import company_logo from "../assets/images/company.png";
+import location_logo from "../assets/images/location.png";
+import github_logo from "../assets/images/github.svg";
 
 const Card = ({ member }) => {
 	const {
