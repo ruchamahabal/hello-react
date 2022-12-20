@@ -24,7 +24,6 @@ const SearchBar = ({ APIData, setFilteredMembers, setNoResults }) => {
 	 */
 	const inputHandler = (e) => {
 		e.preventDefault();
-		setSearchText(e.target.value);
 
 		// get filtered member list by passing APIData as the main data to filter from
 		const filteredMembers = getFilteredMembers(searchText, APIData);
@@ -43,7 +42,10 @@ const SearchBar = ({ APIData, setFilteredMembers, setNoResults }) => {
 				type="search"
 				placeholder="Search..."
 				className="search-bar"
-				onInput={inputHandler}
+				onChange={(e) => {
+					setSearchText(e.target.value);
+				}}
+				onKeyUp={inputHandler}
 				value={searchText}
 				autoFocus
 			/>
