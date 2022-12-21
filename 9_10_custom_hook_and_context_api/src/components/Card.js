@@ -10,6 +10,7 @@ const Card = ({ member }) => {
 		followers,
 		following,
 		location,
+		city,
 		company,
 		html_url,
 	} = member;
@@ -32,10 +33,10 @@ const Card = ({ member }) => {
 						</p>
 					</div>
 				)}
-				{location && (
+				{(location || city) && (
 					<div className="detail-row">
 						<img className="icon" src={location_logo}></img>
-						<p className="location">{`${location}`}</p>
+						<p className="location">{`${location || city}`}</p>
 					</div>
 				)}
 			</div>
