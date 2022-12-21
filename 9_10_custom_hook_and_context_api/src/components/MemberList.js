@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Card from "./Card.js";
-import SearchBar from "./SearchBar.js";
+import Header from "./Header.js";
 import NoResults from "./NoResults.js";
 
 import teamData from "../assets/data/team_data.json";
@@ -19,7 +19,6 @@ const MemberList = () => {
 	/*
 	 * using filteredMembers state variable
 	 * and setFilteredMembers to render data based on search results
-	 * passing setFilteredMembers function prop to Navbar -> SearchBar for controlling what data needs to be displayed
 	 * passing filteredMembers to CardContainer to display data based on the results
 	 */
 
@@ -72,7 +71,7 @@ const MemberList = () => {
 
 	return (
 		<>
-			<SearchBar
+			<Header
 				APIData={APIData}
 				setFilteredMembers={setFilteredMembers}
 				setNoResults={setNoResults}

@@ -23,6 +23,15 @@ button {
 	cursor: pointer;
 }
 
+select {
+	border: 1px solid #959da533;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 14px;
+	line-height: 24px;
+	height: 40px;
+}
+
 /* navbar */
 .navbar {
 	background-color: #000;
@@ -58,11 +67,13 @@ button {
 	height: 40px;
 }
 
-.search-container {
+.header {
 	margin-top: 40px;
 	margin-bottom: 10px;
 	display: flex;
 	justify-content: center;
+	gap: 30px;
+	align-items: baseline;
 }
 
 .search-bar {
@@ -73,7 +84,7 @@ button {
 	font-size: 14px;
 	height: 40px;
 	line-height: 24px;
-	width: 350px;
+	width: 300px;
 }
 
 /* content - card */
