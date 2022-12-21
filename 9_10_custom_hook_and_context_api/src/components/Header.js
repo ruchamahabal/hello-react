@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import stateCityMap from "../assets/data/state_city_map.json";
 
@@ -57,7 +57,13 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 
 	const cityList = useCities(stateName, stateCityMap);
 
+	// skip useEffect written to display filtered data during first render
+	const isFirstRender = useRef(true);
 	useEffect(() => {
+		if (isFirstRender.current) {
+			isFirstRender.current = false;
+			return;
+		}
 		inputHandler();
 	}, [stateName, cityName]);
 
