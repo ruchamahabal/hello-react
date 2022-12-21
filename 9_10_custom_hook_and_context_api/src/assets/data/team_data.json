@@ -1,52 +1,52 @@
 [
-   {
+	{
 		"username": "ruchamahabal",
 		"state": "Maharashtra",
 		"city": "Mumbai"
-   },
-   {
+	},
+	{
 		"username": "upaharika",
 		"state": "Karnataka",
-		"city": "Bangalore"
-   },
-   {
+		"city": "Bengaluru"
+	},
+	{
 		"username": "rishav-sah",
 		"state": "Telangana",
 		"city": "Hyderabad"
-   },
-   {
+	},
+	{
 		"username": "Pratik33",
 		"state": "Maharashtra",
 		"city": "Kolhapur"
-   },
-   {
+	},
+	{
 		"username": "vinaysaip",
 		"state": "Andhra Pradesh",
 		"city": "Purettipalli"
-   },
-   {
+	},
+	{
 		"username": "shubhamyadav30",
 		"state": "Punjab",
 		"city": "Mohali"
-   },
-   {
+	},
+	{
 		"username": "ShailendraSinghRaikwar",
 		"state": "Madhya Pradesh",
 		"city": "Bhopal"
-   },
-   {
+	},
+	{
 		"username": "abhishekps782",
 		"state": "Karnataka",
-		"city": "Bangalore"
-   },
-   {
+		"city": "Bengaluru"
+	},
+	{
 		"username": "mojahidhd",
 		"state": "Delhi",
 		"city": "New Delhi"
-   },
-   {
+	},
+	{
 		"username": "taj0598",
 		"state": "Andhra Pradesh",
 		"city": "Nellore"
-   }
+	}
 ]
