@@ -1,4 +1,5 @@
 // built-in imports
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 // external module
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -6,12 +7,14 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 // components
 import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
-import MemberDetails from "./components/MemberDetails";
 import Error from "./components/Error.js";
+import Loading from "./components/Loading.js";
 
 // class components
-import AboutUs from "./components/class_components/AboutUs.js";
 import AboutUsChildSection from "./components/class_components/AboutUsChildSection.js";
+
+const AboutUs = lazy(() => import("./components/class_components/AboutUs.js"));
+const MemberDetails = lazy(() => import("./components/MemberDetails.js"));
 
 const AppLayout = () => {
 	return (
@@ -34,11 +37,19 @@ const appRouter = createBrowserRouter([
 			},
 			{
 				path: "/member/:username",
-				element: <MemberDetails />,
+				element: (
+					<Suspense fallback={<Loading />}>
+						<MemberDetails />
+					</Suspense>
+				),
 			},
 			{
 				path: "/about-us",
-				element: <AboutUs team_name="Web Pirates" />,
+				element: (
+					<Suspense fallback={<Loading />}>
+						<AboutUs team_name="Web Pirates" />
+					</Suspense>
+				),
 				children: [
 					{
 						index: true,

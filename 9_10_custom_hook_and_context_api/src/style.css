@@ -25,6 +25,7 @@ button {
 
 select {
 	border: 1px solid #959da533;
+	color: #767676;
 	border-radius: 5px;
 	padding: 10px;
 	font-size: 14px;
