@@ -2,6 +2,8 @@ import React from "react";
 
 import Emoji from "./Emoji";
 
+import ThemeContext from "../../contexts/ThemeContext";
+
 class NestedChild extends React.Component {
 	constructor(props) {
 		super(props);
@@ -22,11 +24,9 @@ class NestedChild extends React.Component {
 		console.log("Nested Child's render called");
 
 		const { course_name, duration, show_emoji } = this.state;
-		let emoji;
+		const { theme, setTheme } = this.context;
 
-		if (show_emoji) {
-			emoji = <Emoji />;
-		}
+		let emoji = show_emoji ? <Emoji /> : "";
 
 		return (
 			<>
@@ -36,7 +36,10 @@ class NestedChild extends React.Component {
 					assignments, interactive lectures, code reviews and a lot
 					more!
 				</h3>
-				<div className="flex-div">
+				<div
+					className="flex-div"
+					data-theme={theme === "light" ? "light" : "dark"}
+				>
 					{emoji}
 					<button onClick={this.toggle_emoji}> Peekaboo! </button>
 				</div>
@@ -58,5 +61,7 @@ class NestedChild extends React.Component {
 		console.log("Nested Child's componentDidUpdate called");
 	}
 }
+
+NestedChild.contextType = ThemeContext;
 
 export default NestedChild;

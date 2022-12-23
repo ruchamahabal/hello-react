@@ -1,6 +1,11 @@
-import company_logo from "../assets/images/company.png";
-import location_logo from "../assets/images/location.png";
-import github_logo from "../assets/images/github.svg";
+import { useContext } from "react";
+
+import ThemeContext from "../contexts/ThemeContext";
+
+import company_logo from "../assets/images/company.svg";
+import company_dark from "../assets/images/company_dark.svg";
+import location_logo from "../assets/images/location.svg";
+import location_dark from "../assets/images/location_dark.svg";
 
 const Card = ({ member }) => {
 	const {
@@ -12,11 +17,15 @@ const Card = ({ member }) => {
 		location,
 		city,
 		company,
-		html_url,
 	} = member;
 
+	const { theme, setTheme } = useContext(ThemeContext);
+
 	return (
-		<div className="card">
+		<div
+			className="card"
+			data-theme={`${theme === "light" ? "light" : "dark"}`}
+		>
 			<div className="card-header">
 				<img className="member-img round" src={avatar_url}></img>
 				<h2 className="card-title">{name ? name : login}</h2>
@@ -27,7 +36,12 @@ const Card = ({ member }) => {
 			<div className="details">
 				{company && (
 					<div className="detail-row">
-						<img className="icon" src={company_logo}></img>
+						<img
+							className="icon"
+							src={
+								theme === "light" ? company_logo : company_dark
+							}
+						></img>
 						<p className="company">
 							{`${company.replace(/^@/, "")}`}
 						</p>
@@ -35,15 +49,17 @@ const Card = ({ member }) => {
 				)}
 				{(location || city) && (
 					<div className="detail-row">
-						<img className="icon" src={location_logo}></img>
+						<img
+							className="icon"
+							src={
+								theme === "light"
+									? location_logo
+									: location_dark
+							}
+						></img>
 						<p className="location">{`${location || city}`}</p>
 					</div>
 				)}
-			</div>
-			<div className="card-footer social-icon">
-				<a href={html_url}>
-					<img src={github_logo} alt="Github Logo" />
-				</a>
 			</div>
 		</div>
 	);

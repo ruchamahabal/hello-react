@@ -1,6 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+import ThemeContext from "../../contexts/ThemeContext";
+
 class AboutUs extends React.Component {
 	constructor(props) {
 		/**
@@ -8,10 +10,8 @@ class AboutUs extends React.Component {
 		 * super(props) needs to be called in the first line of the constructor
 		 */
 		super(props);
+		this.state = { team_name: "" };
 
-		this.state = {
-			team_name: "",
-		};
 		console.log("Parent's Constructor called");
 	}
 
@@ -23,9 +23,16 @@ class AboutUs extends React.Component {
 
 		console.log("Parent's render called");
 
+		const { theme, setTheme } = this.context;
+
 		return (
 			<div className="centered-div">
-				<h2>Team {this.state.team_name}</h2>
+				<h2
+					className="title"
+					data-theme={theme === "light" ? "light" : "dark"}
+				>
+					Team {this.state.team_name}
+				</h2>
 				<Outlet />
 			</div>
 		);
@@ -58,5 +65,7 @@ class AboutUs extends React.Component {
 		console.log("Parent's componentWillUnmount called");
 	}
 }
+
+AboutUs.contextType = ThemeContext;
 
 export default AboutUs;

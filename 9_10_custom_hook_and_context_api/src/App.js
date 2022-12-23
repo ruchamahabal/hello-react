@@ -25,7 +25,7 @@ const AppLayout = () => {
 	return (
 		<ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
 			<div
-				class="content"
+				className="content"
 				data-theme={`${theme === "light" ? "light" : "dark"}`}
 			>
 				<Navbar />

@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import company_logo from "../assets/images/company.png";
-import location_logo from "../assets/images/location.png";
+import ThemeContext from "../contexts/ThemeContext";
+
+import company_logo from "../assets/images/company.svg";
+import company_dark from "../assets/images/company_dark.svg";
+import location_logo from "../assets/images/location.svg";
+import location_dark from "../assets/images/location_dark.svg";
 
 const Member = () => {
 	let { username } = useParams();
 	const [member, setMember] = useState("");
+	const { theme, setTheme } = useContext(ThemeContext);
 
 	if (!username) return;
 
@@ -42,12 +47,14 @@ const Member = () => {
 		following,
 		location,
 		company,
-		html_url,
 	} = member;
 
 	return (
 		<div className="member-info">
-			<div className="profile">
+			<div
+				className="profile"
+				data-theme={theme === "light" ? "light" : "dark"}
+			>
 				<img className="member-img round" src={avatar_url} />
 
 				<div className="member-details">
@@ -59,7 +66,14 @@ const Member = () => {
 					<div className="details">
 						{company && (
 							<div className="detail-row">
-								<img className="icon" src={company_logo}></img>
+								<img
+									className="icon"
+									src={
+										theme === "light"
+											? company_logo
+											: company_dark
+									}
+								></img>
 								<p className="company">
 									{`${company.replace(/^@/, "")}`}
 								</p>
@@ -67,7 +81,14 @@ const Member = () => {
 						)}
 						{location && (
 							<div className="detail-row">
-								<img className="icon" src={location_logo}></img>
+								<img
+									className="icon"
+									src={
+										theme === "light"
+											? location_logo
+											: location_dark
+									}
+								></img>
 								<p className="location">{`${location}`}</p>
 							</div>
 						)}

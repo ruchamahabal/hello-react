@@ -1,8 +1,10 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 
 import stateCityMap from "../assets/data/state_city_map.json";
 
+// hooks, contexts
 import useCities from "./hooks/useCities";
+import ThemeContext from "../contexts/ThemeContext";
 
 /**
  * @param {string} searchText text used to match for filtering
@@ -57,6 +59,8 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 
 	const cityList = useCities(stateName, stateCityMap);
 
+	const { theme, setTheme } = useContext(ThemeContext);
+
 	// skip useEffect written to display filtered data during first render
 	const isFirstRender = useRef(true);
 	useEffect(() => {
@@ -101,6 +105,7 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 				onKeyUp={inputHandler}
 				value={searchText}
 				autoFocus
+				data-theme={theme === "light" ? "light" : "dark"}
 			/>
 
 			<select
@@ -108,6 +113,7 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 				onChange={(e) => {
 					setStateName(e.target.value);
 				}}
+				data-theme={theme === "light" ? "light" : "dark"}
 			>
 				<option key={"All States"} value={""}>
 					Select State
@@ -130,6 +136,7 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 				onChange={(e) => {
 					setCityName(e.target.value);
 				}}
+				data-theme={theme === "light" ? "light" : "dark"}
 			>
 				<option key={"All Cities"} value={""}>
 					Select City
