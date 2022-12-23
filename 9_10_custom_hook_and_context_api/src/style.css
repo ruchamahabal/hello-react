@@ -1,6 +1,6 @@
 /* global */
 :root, [data-theme="light"] {
-	--color-bg-primary: #ffffff;
+  --color-bg-primary: #ffffff;
   --color-bg-secondary: #edf2f7;
   --color-text-primary: #2d3748;
   --color-text-secondary: #4a5568;
@@ -238,7 +238,8 @@ select {
 	gap: 30px;
 	align-items: center;
 	justify-content: center;
-	height: 80vh;
+	height: 100vh;
+	margin-top: -20px;
 	padding: 15px;
 	line-height: 30px;
 }
