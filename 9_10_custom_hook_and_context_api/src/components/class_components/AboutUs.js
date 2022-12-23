@@ -23,6 +23,7 @@ class AboutUs extends React.Component {
 
 		console.log("Parent's render called");
 
+		// accessing the context
 		const { theme, setTheme } = this.context;
 
 		return (
@@ -66,6 +67,7 @@ class AboutUs extends React.Component {
 	}
 }
 
+// setting the context for the class
 AboutUs.contextType = ThemeContext;
 
 export default AboutUs;

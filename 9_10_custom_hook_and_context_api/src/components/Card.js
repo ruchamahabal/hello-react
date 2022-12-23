@@ -19,6 +19,7 @@ const Card = ({ member }) => {
 		company,
 	} = member;
 
+	// pass created context to useContext hook
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	return (
