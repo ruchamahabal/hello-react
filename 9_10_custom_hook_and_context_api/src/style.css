@@ -114,6 +114,7 @@ select {
 	justify-content: center;
 	gap: 30px;
 	align-items: baseline;
+	flex-wrap: wrap;
 }
 
 .search-bar {
@@ -249,6 +250,7 @@ select {
 .member-info {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	padding: 100px;
 	justify-content: center;
 	align-items: left;
@@ -256,6 +258,7 @@ select {
 
 .profile {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 30px;
 	align-items: center;
 	padding-bottom: 50px;
@@ -265,6 +268,8 @@ select {
 
 .profile .bio {
 	line-height: 30px;
+	margin: auto;
+	max-width: 60rem;
 }
 
 .profile .member-img {
@@ -279,6 +284,7 @@ select {
 .member-details {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	gap: 15px;
 	justify-content: space-between;
 }
@@ -287,6 +293,7 @@ select {
 	padding-top: 50px;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
 
