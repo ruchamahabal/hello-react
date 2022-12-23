@@ -1,5 +1,5 @@
 // built-in imports
-import { lazy, Suspense } from "react";
+import { useState, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 // external module
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -13,15 +13,25 @@ import Loading from "./components/Loading.js";
 // class components
 import AboutUsChildSection from "./components/class_components/AboutUsChildSection.js";
 
+// contexts
+import ThemeContext from "./contexts/ThemeContext.js";
+
 const AboutUs = lazy(() => import("./components/class_components/AboutUs.js"));
 const MemberDetails = lazy(() => import("./components/MemberDetails.js"));
 
 const AppLayout = () => {
+	const [theme, setTheme] = useState("light");
+
 	return (
-		<>
-			<Navbar />
-			<Outlet />
-		</>
+		<ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+			<div
+				class="content"
+				data-theme={`${theme === "light" ? "light" : "dark"}`}
+			>
+				<Navbar />
+				<Outlet />
+			</div>
+		</ThemeContext.Provider>
 	);
 };
 
