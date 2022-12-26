@@ -15,8 +15,8 @@ const Card = ({ member }) => {
 	} = member;
 
 	return (
-		<div className="card justify-space-between m-5 flex w-96 max-w-full flex-col items-center overflow-hidden rounded-2xl border-none p-5 text-center shadow-lg shadow-gray-200">
-			<div className="card-header flex flex-col items-center">
+		<div className="card justify-space-between m-5 flex w-96 max-w-full flex-col flex-wrap items-center overflow-hidden rounded-2xl border-none p-5 text-center shadow-lg shadow-gray-200">
+			<div className="card-header flex flex-col flex-wrap items-center">
 				<img
 					className="member-img h-44 max-w-full rounded-full border-x border-y border-solid border-slate-200 object-cover p-2"
 					src={avatar_url}
@@ -28,9 +28,9 @@ const Card = ({ member }) => {
 					{`Followers: ${followers}  |  Following: ${following}`}
 				</p>
 			</div>
-			<div className="details my-5 flex flex-col items-start gap-3 text-base text-slate-700">
+			<div className="details my-5 flex flex-col flex-wrap items-start gap-3 text-base text-slate-700">
 				{company && (
-					<div className="detail-row flex flex-row justify-center gap-1">
+					<div className="detail-row flex flex-row flex-wrap justify-center gap-1">
 						<img className="icon h-5 w-5" src={company_logo}></img>
 						<p className="company">
 							{`${company.replace(/^@/, "")}`}
@@ -38,7 +38,7 @@ const Card = ({ member }) => {
 					</div>
 				)}
 				{location && (
-					<div className="detail-row flex flex-row justify-center gap-1">
+					<div className="detail-row flex flex-row flex-wrap justify-center gap-1">
 						<img className="icon h-5 w-5" src={location_logo}></img>
 						<p className="location">{`${location}`}</p>
 					</div>

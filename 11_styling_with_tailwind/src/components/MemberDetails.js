@@ -45,14 +45,14 @@ const Member = () => {
 	} = member;
 
 	return (
-		<div className="member-info items-left flex flex-col justify-center p-24">
-			<div className="profile flex items-center gap-8 border-b border-solid border-slate-300 pb-14">
+		<div className="member-info items-left flex flex-col flex-wrap justify-center p-24">
+			<div className="profile flex flex-wrap items-center gap-8 border-b border-solid border-slate-300 pb-14">
 				<img
 					className="member-img member-img h-64 max-w-full rounded-full border-x border-y border-solid border-slate-200 object-cover p-2"
 					src={avatar_url}
 				/>
 
-				<div className="member-details flex flex-col justify-between gap-4">
+				<div className="member-details flex flex-col flex-wrap justify-between gap-4">
 					<h2 className="card-title mt-2 mb-1 text-2xl font-bold text-slate-700">
 						{name ? name : login}
 					</h2>
@@ -60,9 +60,9 @@ const Member = () => {
 					<p className="followers text-muted mt-2 text-base text-gray-400">
 						{`Followers: ${followers}  |  Following: ${following}`}
 					</p>
-					<div className="details mt-2 flex flex-col items-start gap-2 text-base text-slate-700">
+					<div className="details mt-2 flex flex-col flex-wrap items-start gap-2 text-base text-slate-700">
 						{company && (
-							<div className="detail-row flex flex-row justify-center gap-1">
+							<div className="detail-row flex flex-row flex-wrap justify-center gap-1">
 								<img
 									className="icon h-5 w-5"
 									src={company_logo}
@@ -73,7 +73,7 @@ const Member = () => {
 							</div>
 						)}
 						{location && (
-							<div className="detail-row flex flex-row justify-center gap-1">
+							<div className="detail-row flex flex-row flex-wrap justify-center gap-1">
 								<img
 									className="icon h-5 w-5"
 									src={location_logo}
@@ -85,7 +85,7 @@ const Member = () => {
 				</div>
 			</div>
 
-			<div className="stats flex flex-row justify-evenly pt-12">
+			<div className="stats flex flex-row flex-wrap justify-evenly gap-8 pt-12">
 				<img
 					src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&locale=en&count_private=true&border_radius=15&include_all_commits=true`}
 					alt={`GitHub Stats: ${username}`}
