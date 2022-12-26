@@ -49,26 +49,3 @@ const Card = ({ member }) => {
 };
 
 export default Card;
-
-// .details {
-// 	display: flex;
-// 	flex-direction: column;
-// 	gap: 10px;
-// 	font-size: 15px;
-// 	color: #192734;
-// 	margin-top: 20px;
-// 	margin-bottom: 20px;
-// }
-
-// .detail-row {
-// 	display: flex;
-// 	flex-direction: row;
-// 	justify-content: baseline;
-// 	align-items: flex-end;
-// 	gap: 5px;
-// }
-
-// .icon {
-// 	width: 18px;
-// 	height: 18px;
-// }

@@ -45,10 +45,10 @@ const Member = () => {
 	} = member;
 
 	return (
-		<div className="member-info items-left flex flex-col flex-wrap justify-center p-24">
+		<div className="items-left flex flex-col flex-wrap justify-center p-24">
 			<div className="profile flex flex-wrap items-center gap-8 border-b border-solid border-slate-300 pb-14">
 				<img
-					className="member-img member-img h-64 max-w-full rounded-full border-x border-y border-solid border-slate-200 object-cover p-2"
+					className="h-64 max-w-full rounded-full border-x border-y border-solid border-slate-200 object-cover p-2"
 					src={avatar_url}
 				/>
 
