@@ -77,7 +77,7 @@ select {
 	justify-content: space-between;
 }
 
-.nav-left {
+.nav-left, .nav-right {
 	display: flex;
 	align-items: center;
 	gap: 50px;

@@ -1,10 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { LoginUser } from "../slices/userSlice.js";
 
 const Login = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const validateForm = (e) => {
 		if (!name) {
@@ -39,6 +46,8 @@ const Login = () => {
 		e.preventDefault();
 
 		if (validateForm()) {
+			dispatch(LoginUser({ username: name }));
+			navigate("/");
 		}
 	};
 
