@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 // components
+import Login from "./components/Login.js";
 import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
 import Error from "./components/Error.js";
@@ -44,6 +45,10 @@ const appRouter = createBrowserRouter([
 			{
 				index: true,
 				element: <MemberList />,
+			},
+			{
+				path: "/login",
+				element: <Login />,
 			},
 			{
 				path: "/member/:username",

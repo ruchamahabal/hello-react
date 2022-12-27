@@ -320,3 +320,28 @@ select {
 	justify-content: center;
 	margin-top: 50px;
 }
+
+/* Login Form */
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.user-input {
+	background-color: var(--color-bg-secondary);
+	color: var(--color-text-secondary);
+	border: var(--border);
+	border-radius: 5px;
+	outline: 0;
+	padding: 10px 20px;
+	font-size: 14px;
+	height: 40px;
+	line-height: 24px;
+	width: 400px;
+}
+
+.error {
+	color: red;
+}
