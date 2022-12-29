@@ -80,7 +80,7 @@ select {
 .nav-left, .nav-right {
 	display: flex;
 	align-items: center;
-	gap: 50px;
+	gap: 20px;
 }
 
 .nav-links {
@@ -226,8 +226,10 @@ select {
 }
 
 .theme-toggler {
-	width: 25px;
-	height: 25px;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
 }
 
 /* No results */

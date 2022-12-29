@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import ThemeContext from "../contexts/ThemeContext";
-import store from "../store/store.js";
+import { LogoutUser } from "../slices/userSlice";
 
 import logo from "../assets/images/logo.png";
 import sun from "../assets/images/sun.png";
@@ -12,6 +12,12 @@ import moon from "../assets/images/moon.png";
 const Navbar = () => {
 	const { username } = useSelector((store) => store.user.value);
 	const { theme, setTheme } = useContext(ThemeContext);
+	const dispatch = useDispatch();
+
+	const handleLogout = () => {
+		e.preventDefault();
+		dispatch(LogoutUser({}));
+	};
 
 	const updateTheme = () => {
 		const newTheme = theme === "light" ? "dark" : "light";
@@ -41,7 +47,16 @@ const Navbar = () => {
 
 			<div className="nav-right">
 				{username ? (
-					<p>Hello, {username}</p>
+					<>
+						<p className="link">Hello, {username}</p>
+						<Link
+							to="login"
+							className="link"
+							onClick={handleLogout}
+						>
+							Logout
+						</Link>
+					</>
 				) : (
 					<Link to="login" className="link">
 						Login
