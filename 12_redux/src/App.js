@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
 import Error from "./components/Error.js";
 import Loading from "./components/Loading.js";
+import ProtectedRoute from "./components/ProtectedRoute.js";
 
 // class components
 import AboutUsChildSection from "./components/class_components/AboutUsChildSection.js";
@@ -48,7 +49,11 @@ const appRouter = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <MemberList />,
+				element: (
+					<ProtectedRoute>
+						<MemberList />
+					</ProtectedRoute>
+				),
 			},
 			{
 				path: "/login",

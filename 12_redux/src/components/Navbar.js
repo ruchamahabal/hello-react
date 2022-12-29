@@ -10,13 +10,13 @@ import sun from "../assets/images/sun.png";
 import moon from "../assets/images/moon.png";
 
 const Navbar = () => {
-	const { username } = useSelector((store) => store.user.value);
+	const username = useSelector((store) => store.user.username);
 	const { theme, setTheme } = useContext(ThemeContext);
 	const dispatch = useDispatch();
 
 	const handleLogout = () => {
 		e.preventDefault();
-		dispatch(LogoutUser({}));
+		dispatch(LogoutUser());
 	};
 
 	const updateTheme = () => {
@@ -50,7 +50,7 @@ const Navbar = () => {
 					<>
 						<p className="link">Hello, {username}</p>
 						<Link
-							to="login"
+							to="/login"
 							className="link"
 							onClick={handleLogout}
 						>
@@ -58,7 +58,7 @@ const Navbar = () => {
 						</Link>
 					</>
 				) : (
-					<Link to="login" className="link">
+					<Link to="/login" className="link">
 						Login
 					</Link>
 				)}

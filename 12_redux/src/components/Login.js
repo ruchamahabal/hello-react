@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 import { LoginUser } from "../slices/userSlice.js";
 
@@ -11,7 +11,7 @@ const Login = () => {
 	const [error, setError] = useState("");
 
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
+	const isLoggedIn = useSelector((store) => store.user.isLoggedIn);
 
 	const validateForm = (e) => {
 		if (!name) {
@@ -46,10 +46,14 @@ const Login = () => {
 		e.preventDefault();
 
 		if (validateForm()) {
-			dispatch(LoginUser({ username: name }));
-			navigate("/");
+			dispatch(LoginUser(name));
+			<Navigate to="/" replace />;
 		}
 	};
+
+	if (isLoggedIn) {
+		return <Navigate to="/" replace />;
+	}
 
 	return (
 		<div className="centered-div">
