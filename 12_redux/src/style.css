@@ -9,6 +9,7 @@
   --border: none;
   --img-border: 1px solid #e1e3e5;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --divider: rgba(60, 60, 60, .29);
 }
 
 [data-theme="dark"] {
@@ -21,6 +22,7 @@
 	--border: 1px solid #4a5568;
 	--img-border: 1px solid #4a5568;
 	--box-shadow: none;
+	--divider: rgba(84, 84, 84, .65);
 }
 
 * {
@@ -105,6 +107,22 @@ select {
 .logo img {
 	width: 40px;
 	height: 40px;
+}
+
+.user-info {
+	display: flex;
+	align-items: center;
+}
+
+.user-info:before, .user-info:after {
+	width: 1px;
+	height: 24px;
+	background-color: var(--divider);
+	content: "";
+}
+
+.login {
+	margin: 0 1rem;
 }
 
 .header {

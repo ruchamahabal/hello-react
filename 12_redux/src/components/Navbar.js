@@ -32,6 +32,9 @@ const Navbar = () => {
 					<img src={logo} alt="logo"></img>
 					<h1 className="title link">WebPirates</h1>
 				</div>
+			</div>
+
+			<div className="nav-right">
 				<div className="nav-links">
 					<Link to="/" className="link">
 						Home
@@ -41,12 +44,12 @@ const Navbar = () => {
 						About Us
 					</Link>
 				</div>
-			</div>
 
-			<div className="nav-right">
 				{username ? (
 					<>
-						<p className="link">Hello, {username}</p>
+						<div className="user-info" data-theme={theme}>
+							<p className="link login">Hello, {username}</p>
+						</div>
 						<Link
 							to="/login"
 							className="link"
@@ -56,9 +59,11 @@ const Navbar = () => {
 						</Link>
 					</>
 				) : (
-					<Link to="/login" className="link">
-						Login
-					</Link>
+					<div className="user-info" data-theme={theme}>
+						<Link className="link login" to="/login">
+							Login
+						</Link>
+					</div>
 				)}
 				<a
 					className="theme-toggle"
