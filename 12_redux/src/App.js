@@ -3,18 +3,22 @@ import { useState, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 // external module
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
 
 // components
+import Login from "./components/Login.js";
 import Navbar from "./components/Navbar.js";
 import MemberList from "./components/MemberList.js";
 import Error from "./components/Error.js";
 import Loading from "./components/Loading.js";
+import ProtectedRoute from "./components/ProtectedRoute.js";
 
 // class components
 import AboutUsChildSection from "./components/class_components/AboutUsChildSection.js";
 
 // contexts
 import ThemeContext from "./contexts/ThemeContext.js";
+import store from "./store/store.js";
 
 const AboutUs = lazy(() => import("./components/class_components/AboutUs.js"));
 const MemberDetails = lazy(() => import("./components/MemberDetails.js"));
@@ -23,12 +27,14 @@ const AppLayout = () => {
 	const [theme, setTheme] = useState("light");
 
 	return (
-		<ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
-			<div className="content" data-theme={theme}>
-				<Navbar />
-				<Outlet />
-			</div>
-		</ThemeContext.Provider>
+		<Provider store={store}>
+			<ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+				<div className="content" data-theme={theme}>
+					<Navbar />
+					<Outlet />
+				</div>
+			</ThemeContext.Provider>
+		</Provider>
 	);
 };
 
@@ -40,7 +46,19 @@ const appRouter = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <MemberList />,
+				element: (
+					<ProtectedRoute>
+						<MemberList />
+					</ProtectedRoute>
+				),
+			},
+			{
+				path: "/login",
+				element: (
+					<Provider store={store}>
+						<Login />
+					</Provider>
+				),
 			},
 			{
 				path: "/member/:username",

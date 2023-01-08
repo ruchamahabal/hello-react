@@ -21,6 +21,7 @@ const Card = ({ member }) => {
 
 	// pass created context to useContext hook
 	const { theme, setTheme } = useContext(ThemeContext);
+	const is_theme_light = theme === "light";
 
 	return (
 		<div className="card" data-theme={theme}>

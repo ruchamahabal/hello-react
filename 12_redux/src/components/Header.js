@@ -3,7 +3,7 @@ import { useEffect, useState, useRef, useContext } from "react";
 import stateCityMap from "../assets/data/state_city_map.json";
 
 // hooks, contexts
-import useCities from "./hooks/useCities";
+import useCities from "../hooks/useCities";
 import ThemeContext from "../contexts/ThemeContext";
 
 /**
