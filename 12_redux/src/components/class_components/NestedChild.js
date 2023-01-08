@@ -36,10 +36,7 @@ class NestedChild extends React.Component {
 					assignments, interactive lectures, code reviews and a lot
 					more!
 				</h3>
-				<div
-					className="flex-div"
-					data-theme={theme === "light" ? "light" : "dark"}
-				>
+				<div className="flex-div" data-theme={theme}>
 					{emoji}
 					<button onClick={this.toggle_emoji}> Peekaboo! </button>
 				</div>

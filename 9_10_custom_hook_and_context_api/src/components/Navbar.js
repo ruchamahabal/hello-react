@@ -9,17 +9,15 @@ import moon from "../assets/images/moon.png";
 
 const Navbar = () => {
 	const { theme, setTheme } = useContext(ThemeContext);
+	const is_theme_light = theme === "light";
 
 	const updateTheme = () => {
-		const newTheme = theme === "light" ? "dark" : "light";
+		const newTheme = is_theme_light ? "dark" : "light";
 		setTheme(newTheme);
 	};
 
 	return (
-		<div
-			className="navbar"
-			data-theme={`${theme === "light" ? "light" : "dark"}`}
-		>
+		<div className="navbar" data-theme={theme}>
 			<div className="nav-left">
 				<div className="logo">
 					<img src={logo} alt="logo"></img>
@@ -43,7 +41,7 @@ const Navbar = () => {
 				aria-live="polite"
 				onClick={updateTheme}
 			>
-				{theme === "light" ? (
+				{is_theme_light ? (
 					<img src={moon} className="theme-toggler"></img>
 				) : (
 					<img src={sun} className="theme-toggler"></img>

@@ -12,6 +12,7 @@ const Member = () => {
 	let { username } = useParams();
 	const [member, setMember] = useState("");
 	const { theme, setTheme } = useContext(ThemeContext);
+	const is_theme_light = theme === "light";
 
 	if (!username) return;
 
@@ -51,10 +52,7 @@ const Member = () => {
 
 	return (
 		<div className="member-info">
-			<div
-				className="profile"
-				data-theme={theme === "light" ? "light" : "dark"}
-			>
+			<div className="profile" data-theme={theme}>
 				<img className="member-img round" src={avatar_url} />
 
 				<div className="member-details">
@@ -69,7 +67,7 @@ const Member = () => {
 								<img
 									className="icon"
 									src={
-										theme === "light"
+										is_theme_light
 											? company_logo
 											: company_dark
 									}
@@ -84,7 +82,7 @@ const Member = () => {
 								<img
 									className="icon"
 									src={
-										theme === "light"
+										is_theme_light
 											? location_logo
 											: location_dark
 									}

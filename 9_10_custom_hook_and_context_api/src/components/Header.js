@@ -105,7 +105,7 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 				onKeyUp={inputHandler}
 				value={searchText}
 				autoFocus
-				data-theme={theme === "light" ? "light" : "dark"}
+				data-theme={theme}
 			/>
 
 			<select
@@ -113,7 +113,7 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 				onChange={(e) => {
 					setStateName(e.target.value);
 				}}
-				data-theme={theme === "light" ? "light" : "dark"}
+				data-theme={theme}
 			>
 				<option key={"All States"} value={""}>
 					Select State
@@ -136,7 +136,7 @@ const Header = ({ APIData, setFilteredMembers, setNoResults }) => {
 				onChange={(e) => {
 					setCityName(e.target.value);
 				}}
-				data-theme={theme === "light" ? "light" : "dark"}
+				data-theme={theme}
 			>
 				<option key={"All Cities"} value={""}>
 					Select City

@@ -23,10 +23,7 @@ const Card = ({ member }) => {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	return (
-		<div
-			className="card"
-			data-theme={`${theme === "light" ? "light" : "dark"}`}
-		>
+		<div className="card" data-theme={theme}>
 			<div className="card-header">
 				<img className="member-img round" src={avatar_url}></img>
 				<h2 className="card-title">{name ? name : login}</h2>
@@ -39,9 +36,7 @@ const Card = ({ member }) => {
 					<div className="detail-row">
 						<img
 							className="icon"
-							src={
-								theme === "light" ? company_logo : company_dark
-							}
+							src={is_theme_light ? company_logo : company_dark}
 						></img>
 						<p className="company">
 							{`${company.replace(/^@/, "")}`}
@@ -52,11 +47,7 @@ const Card = ({ member }) => {
 					<div className="detail-row">
 						<img
 							className="icon"
-							src={
-								theme === "light"
-									? location_logo
-									: location_dark
-							}
+							src={is_theme_light ? location_logo : location_dark}
 						></img>
 						<p className="location">{`${location || city}`}</p>
 					</div>

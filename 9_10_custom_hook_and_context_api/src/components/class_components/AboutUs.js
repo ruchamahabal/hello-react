@@ -28,10 +28,7 @@ class AboutUs extends React.Component {
 
 		return (
 			<div className="centered-div">
-				<h2
-					className="title"
-					data-theme={theme === "light" ? "light" : "dark"}
-				>
+				<h2 className="title" data-theme={theme}>
 					Team {this.state.team_name}
 				</h2>
 				<Outlet />

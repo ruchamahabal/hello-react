@@ -8,10 +8,7 @@ const Error = () => {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	return (
-		<div
-			className="centered-div"
-			data-theme={theme === "light" ? "light" : "dark"}
-		>
+		<div className="centered-div" data-theme={theme}>
 			<h2>Oops! Something went wrong!</h2>
 			<p>{errorData.statusText || errorData.message}</p>
 		</div>
