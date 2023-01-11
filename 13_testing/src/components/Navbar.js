@@ -29,7 +29,11 @@ const Navbar = () => {
 		<div className="navbar" data-theme={theme}>
 			<div className="nav-left">
 				<div className="logo">
-					<img src={logo} alt="logo"></img>
+					<img
+						src="https://img.icons8.com/glyph-neue/512/self-destruct-button.png"
+						alt="logo"
+						data-testid="logo"
+					></img>
 					<h1 className="title link">WebPirates</h1>
 				</div>
 			</div>
